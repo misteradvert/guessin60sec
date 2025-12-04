@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div className="mainHeader">Угадать за 60 секунд</div>
-      <StartBtn />
+      <StartBtn name="Начать игру" />
     </>
   );
 }

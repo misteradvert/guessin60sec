@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 
-function StartBtn() {
-  return <Button variant="contained">Начать игру</Button>;
+function StartBtn(props) {
+  return <Button variant="contained">{props.name}</Button>;
 }
 
 export default StartBtn;
