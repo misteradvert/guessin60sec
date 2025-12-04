@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "@mui/material";
-function StartBtn({ name, onClick, ...props }) {
+function TeamBtn({ name, onClick, ...props }) {
   return (
     <Button variant="contained" size="large" onClick={onClick} {...props}>
       {name}
     </Button>
   );
 }
-export default StartBtn;
+export default TeamBtn;
