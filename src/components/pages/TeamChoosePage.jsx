@@ -1,7 +1,13 @@
 import React from "react";
 import TeamBtn from "../TeamBtn/TeamBtn";
-
+import { useNavigate } from "react-router-dom";
 function TeamChoosePage() {
+  const navigate = useNavigate();
+
+  const handleShowCard = () => {
+    navigate("/CardPlay");
+  };
+
   return (
     <>
       <div
@@ -17,7 +23,7 @@ function TeamChoosePage() {
             border: "2px solid white",
           }}
         >
-          <TeamBtn name="Команда 1" />
+          <TeamBtn name="Команда 1" onClick={handleShowCard} />
           <TeamBtn name="Команда 2" />
         </div>
       </div>

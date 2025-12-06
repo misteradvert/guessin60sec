@@ -4,6 +4,7 @@ import "./App.css";
 
 import HomePage from "./components/pages/HomePage";
 import TeamChoosePage from "./components/pages/TeamChoosePage";
+import CardPlayPage from './components/pages/CardPlayPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/TeamChoose" element={<TeamChoosePage />} />
+        <Route path="/CardPlay" element={<CardPlayPage />} />
       </Routes>
     </Router>
   );

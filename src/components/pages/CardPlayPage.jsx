@@ -1,41 +1,14 @@
 import React from "react";
-import TeamBtn from "../TeamBtn/TeamBtn";
+import OneCard from "../OneCard";
 
 function CardPlayPage() {
-  let allCardsArr = {
-    card_1: [
-      "Безумный Макс",
-      "Игра Престолов",
-      "Depeche Mode",
-      "Бред Пит",
-      "Elton John",
-      "Симба",
-      "Лютер",
-      "Мулан",
-    ],
-    card_2: [
-      "Большой добрый великан",
-      "Ривердейл",
-      "Evanescence",
-      "Риз Уизерспун",
-      "Сплин",
-      "Джесси Пинкман",
-      "Сорвиголова",
-      "Бойцовский клуб",
-    ],
-    card_3: [
-      "Диктатор",
-      "Монстр",
-      "Radiohead",
-      "Натали Портман",
-      "Slipknot",
-      "Торин Дубощит",
-      "И снова здравствуйте",
-      "Таинственный сад",
-    ],
-  };
-
-  return <></>;
+  return (
+    <div>
+      У вас будет 60 сек, чтобы объяснить максимальное количество слов из карточки.
+      <div>После того, как нажмете кнопку "ОК" таймер начнет обратный отсчет.</div>
+      <OneCard />
+    </div>
+  );
 }
 
 export default CardPlayPage;
