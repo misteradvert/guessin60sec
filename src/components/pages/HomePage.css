@@ -26,9 +26,18 @@ body {
   border: 2px solid white;
 }
 
-.divLogo {
-  background-image: url("/logotype.png");
-  background-size: cover; /* или contain */
-  background-position: center;
-  background-repeat: no-repeat;
+.mainLogo {
+  width: 60%;
+}
+
+.divLogoBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.startBtn {
+  width: 45%;
 }

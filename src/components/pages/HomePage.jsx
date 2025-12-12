@@ -12,12 +12,12 @@ function HomePage() {
 
   return (
     <>
-      <div class="divMain">
-        <div class="divAllContent">
-          <div className="divLogo">
-            <img alt="Лого Угадай за 60 секунд"></img>
+      <div className="divMain">
+        <div className="divAllContent">
+          <div className="divLogoBtn">
+            <img className="mainLogo" src="/logotype.png" alt="Лого Угадай за 60 секунд" style={{ border: "1px solid blue" }}></img>
+            <StartBtn className="startBtn" name="Начать игру" onClick={handleStartGame} />
           </div>
-          <StartBtn name="Начать игру" onClick={handleStartGame} />
         </div>
       </div>
     </>
