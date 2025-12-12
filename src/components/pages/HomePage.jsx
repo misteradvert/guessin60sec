@@ -14,7 +14,9 @@ function HomePage() {
     <>
       <div class="divMain">
         <div class="divAllContent">
-          <div className="mainHeader">Угадать за 60 секунд</div>
+          <div className="divLogo">
+            <img alt="Лого Угадай за 60 секунд"></img>
+          </div>
           <StartBtn name="Начать игру" onClick={handleStartGame} />
         </div>
       </div>

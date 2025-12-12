@@ -7,14 +7,28 @@ body {
   background-color: #38393b;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .divAllContent {
-	background-color: ;
+  background-image: url("/back.webp");
+  background-size: cover; /* или contain */
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30vw;
   height: 80vh;
   border-radius: 10vh;
+  border: 2px solid white;
+}
+
+.divLogo {
+  background-image: url("/logotype.png");
+  background-size: cover; /* или contain */
+  background-position: center;
+  background-repeat: no-repeat;
 }
