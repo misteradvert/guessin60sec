@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.divMain {
+  background-color: #38393b;
+  width: 100vw;
+  height: 100vh;
+}
+
+.divAllContent {
+	background-color: ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 80vh;
+  border-radius: 10vh;
+}
