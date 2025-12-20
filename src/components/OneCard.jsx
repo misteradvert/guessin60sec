@@ -5,6 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
 
 function OneCard() {
   let allCardsArr = {
@@ -21,15 +22,18 @@ function OneCard() {
             return (
               // <--- Добавлено ключевое слово return
               <Box key={index} sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography variant="h6" gutterBottom>
-                  {el}
+                <Typography variant="h6" gutterBottom sx={{ display: "flex", border: "1px solid red" }}>
+                  <Box>{el}</Box>
+                  <Box>
+                    <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 50 } }} color="success" />
+                  </Box>
                 </Typography>
               </Box>
             );
           })}
         </CardContent>
         <CardActions>
-          <Button size="small">След.карта</Button>
+          <Button size="large">След.карта</Button>
         </CardActions>
       </Card>
     </div>
