@@ -16,14 +16,14 @@ function OneCard() {
 
   return (
     <div>
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 450, minHeight: 720, borderRadius: 5 }}>
         <CardContent>
           {allCardsArr.card1.map(function (el, index) {
             return (
               // <--- Добавлено ключевое слово return
-              <Box key={index} sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography variant="h6" gutterBottom sx={{ display: "flex", border: "1px solid red" }}>
-                  <Box>{el}</Box>
+              <Box key={index} sx={{ display: "flex", flexDirection: "column", width: "80" }}>
+                <Typography variant="h6" gutterBottom sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid red", width: "100" }}>
+                  <Box sx={{ fontFamily: "'BabyPop', sans-serif", fontWeight: "500", fontSize: "30px", color: "#542ee7" }}>{el.toUpperCase()}</Box>
                   <Box>
                     <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 50 } }} color="success" />
                   </Box>
@@ -32,8 +32,16 @@ function OneCard() {
             );
           })}
         </CardContent>
+
         <CardActions>
-          <Button size="large">След.карта</Button>
+          <Box sx={{ display: "flex", justifyContent: "space-between", width: 1, border: "1px solid red", marginLeft: "7px", marginRight: "7px" }}>
+            <Button size="large" variant="contained" sx={{}}>
+              Пауза
+            </Button>
+            <Button size="large" variant="contained">
+              След.карта
+            </Button>
+          </Box>
         </CardActions>
       </Card>
     </div>
