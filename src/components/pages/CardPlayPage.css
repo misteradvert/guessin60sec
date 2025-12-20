@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'BabyPop';
+  src: url('/fonts/BabyPop.otf') format('opentype'); /* Исправлено */
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.divMain {
+  background-color: #38393b;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
