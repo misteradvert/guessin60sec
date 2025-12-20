@@ -1,6 +1,8 @@
 import React from "react";
 import TeamBtn from "../TeamBtn/TeamBtn";
 import { useNavigate } from "react-router-dom";
+import "../pages/TeamChoosePage.css";
+
 function TeamChoosePage() {
   const navigate = useNavigate();
 
