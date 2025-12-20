@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'BabyPop';
-  src: url('/fonts/BabyPop.otf') format('opentype'); /* Исправлено */
+  font-family: "BabyPop";
+  src: url("/fonts/BabyPop.otf") format("opentype"); /* Исправлено */
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -32,20 +32,4 @@ body {
   height: 95vh;
   border-radius: 5vh;
   border: 2px solid white;
-}
-
-.mainLogo {
-  width: 60%;
-}
-
-.divLogoBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid red;
-}
-
-.startBtn {
-  width: 45%;
 }
