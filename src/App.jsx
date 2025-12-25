@@ -7,6 +7,7 @@ import TeamChoosePage from "./components/pages/TeamChoosePage";
 import CardPlayPage from './components/pages/CardPlayPage';
 
 function App() {
+
   return (
     <Router>
       <Routes>
