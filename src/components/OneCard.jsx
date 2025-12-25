@@ -17,8 +17,6 @@ function OneCard({ onCheckboxChange }) {
   // Инициализируем массив состояний для каждого чекбокса
   const [checkedStates, setCheckedStates] = useState(Array(allCardsArr.card1.length).fill(false));
 
-  const [isChecked, setIsChecked] = useState(false);
-
   const handleChange = (index) => (e) => {
     const checked = e.target.checked;
 
@@ -44,7 +42,7 @@ function OneCard({ onCheckboxChange }) {
                 <Typography variant="h6" gutterBottom sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid red", width: "100" }}>
                   <Box sx={{ fontFamily: "'BabyPop', sans-serif", fontWeight: "500", fontSize: "30px", color: "#542ee7" }}>{el.toUpperCase()}</Box>
                   <Box>
-                    <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 50 } }} color="success" checked={isChecked} onChange={handleChange(index)} />
+                    <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 50 } }} color="success" checked={checkedStates[index]} onChange={handleChange(index)} />
                   </Box>
                 </Typography>
               </Box>
@@ -54,7 +52,7 @@ function OneCard({ onCheckboxChange }) {
 
         <CardActions>
           <Box sx={{ display: "flex", justifyContent: "space-between", width: 1, border: "1px solid red", marginLeft: "7px", marginRight: "7px" }}>
-            <Button size="large" variant="contained" sx={{}}>
+            <Button size="large" variant="contained">
               Пауза
             </Button>
             <Button size="large" variant="contained">
