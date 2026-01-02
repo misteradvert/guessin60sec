@@ -23,11 +23,12 @@ function CardPlayPage() {
       <div className="divMain">
         <div className="divAllContent">
           <div style={{ height: "100%", alignItems: "flex-start" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "25px", marginBottom: "40px", border: "1px solid lime" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "25px", marginBottom: "40px" }}>
               <div style={{ fontSize: "30px" }}>{teamName}</div>
+
               <div style={{ display: "flex" }}>
                 <div style={{ fontSize: "30px" }}>Баллы: {counter}</div>
-                <div style={{ fontSize: "30px", marginLeft: "5px" }}>0</div>
+                <div style={{ fontSize: "30px", marginLeft: "5px" }}></div>
               </div>
             </div>
             <OneCard onCheckboxChange={handleCheckboxChange} />
