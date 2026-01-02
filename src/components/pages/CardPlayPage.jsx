@@ -1,5 +1,6 @@
 import React from "react";
 import OneCard from "../OneCard";
+import Timer from "../Timer/Timer"
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import "../pages/CardPlayPage.css";
@@ -23,9 +24,9 @@ function CardPlayPage() {
       <div className="divMain">
         <div className="divAllContent">
           <div style={{ height: "100%", alignItems: "flex-start" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "25px", marginBottom: "40px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center", marginTop: "25px", marginBottom: "40px" }}>
               <div style={{ fontSize: "30px" }}>{teamName}</div>
-
+              <Timer/>
               <div style={{ display: "flex" }}>
                 <div style={{ fontSize: "30px" }}>Баллы: {counter}</div>
                 <div style={{ fontSize: "30px", marginLeft: "5px" }}></div>
