@@ -35,14 +35,14 @@ function Timer({ initialTime = 60, onTimeEnd }) {
     };
   }, [isActive, time, onTimeEnd]);
 
-//   // Сброс таймера
-//   const resetTimer = () => {
-//     setIsActive(false);
-//     setTime(initialTime);
-//     if (timerRef.current) {
-//       clearInterval(timerRef.current);
-//     }
-//   };
+  //   // Сброс таймера
+  //   const resetTimer = () => {
+  //     setIsActive(false);
+  //     setTime(initialTime);
+  //     if (timerRef.current) {
+  //       clearInterval(timerRef.current);
+  //     }
+  //   };
 
   // Форматирование времени в MM:SS
   const formatTime = (seconds) => {
@@ -54,7 +54,7 @@ function Timer({ initialTime = 60, onTimeEnd }) {
   return (
     <div onClick={handleClick} style={{ color: "white", fontSize: "40px", cursor: isActive ? "default" : "pointer", opacity: isActive ? 1 : 0.8, transition: "opacity 0.3s", userSelect: "none" }} title={isActive ? "Таймер запущен" : "Кликните для запуска таймера"}>
       {formatTime(time)}
-      {!isActive && time === initialTime && <div style={{ fontSize: "12px", marginTop: "5px", opacity: 0.7 }}>Кликните для старта</div>}
+      {!isActive && time === initialTime && <div style={{ fontSize: "12px", marginTop: "5px", opacity: 0.7 }}>Клик для старта</div>}
       {time === 0 && <div style={{ fontSize: "12px", marginTop: "5px", color: "#ff6b6b" }}>Время вышло!</div>}
     </div>
   );
