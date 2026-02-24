@@ -35,7 +35,6 @@ function CardPlayPage() {
               flexDirection: "column", // Меняем на column
               marginTop: "2vh",
               boxSizing: "border-box",
-              border: "2px solid lime",
             }}
           >
             <div
@@ -43,7 +42,6 @@ function CardPlayPage() {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                border: "2px solid orange",
                 height: "80px", // Фиксированная высота верхней панели
                 flexShrink: 0, // Запрещаем сжиматься
               }}

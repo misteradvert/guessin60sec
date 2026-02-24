@@ -36,7 +36,6 @@ function OneCard({ onCheckboxChange }) {
       style={{
         width: "100%",
         height: "98%", // Учитываем высоту верхней панели
-        border: "3px solid black",
         overflow: "hidden", // Предотвращаем выход за пределы
         display: "flex",
         flexDirection: "column",
@@ -47,7 +46,6 @@ function OneCard({ onCheckboxChange }) {
           width: "100%",
           height: "100%",
           borderRadius: 5,
-          border: "3px solid lime",
           display: "flex",
           flexDirection: "column",
         }}
@@ -62,7 +60,6 @@ function OneCard({ onCheckboxChange }) {
             overflowY: "auto", // Добавляем прокрутку внутри карточки если нужно
             padding: "16px",
             "&:last-child": { paddingBottom: "16px" },
-            border: "2px solid blue",
           }}
         >
           {allCardsArr.card1.map(function (el, index) {
