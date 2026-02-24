@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+
 import Checkbox from "@mui/material/Checkbox";
 
 function OneCard({ onCheckboxChange }) {
@@ -32,15 +32,75 @@ function OneCard({ onCheckboxChange }) {
   };
 
   return (
-    <div>
-      <Card sx={{ minWidth: 450, minHeight: 720, borderRadius: 5 }}>
-        <CardContent>
+    <div
+      style={{
+        width: "100%",
+        height: "98%", // Учитываем высоту верхней панели
+        border: "3px solid black",
+        overflow: "hidden", // Предотвращаем выход за пределы
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <Card
+        sx={{
+          width: "100%",
+          height: "100%",
+          borderRadius: 5,
+          border: "3px solid lime",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flex: 1,
+            overflowY: "auto", // Добавляем прокрутку внутри карточки если нужно
+            padding: "16px",
+            "&:last-child": { paddingBottom: "16px" },
+            border: "2px solid blue",
+          }}
+        >
           {allCardsArr.card1.map(function (el, index) {
             return (
-              // <--- Добавлено ключевое слово return
-              <Box key={index} sx={{ display: "flex", flexDirection: "column", width: "80" }}>
-                <Typography variant="h6" gutterBottom sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100" }}>
-                  <Box sx={{ fontFamily: "'BabyPop', sans-serif", fontWeight: "500", fontSize: "30px", color: "#542ee7" }}>{el.toUpperCase()}</Box>
+              <Box
+                key={index}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+
+                  width: "100%",
+                  height: "7.5vh",
+                  borderBottom: "1px solid #c2c2c2ff", // Добавляем разделитель
+                  "&:last-child": { borderBottom: "none" }, // Убираем у последнего
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "100%",
+                    margin: "8px 0", // Добавляем отступы
+                  }}
+                >
+                  <Box
+                    sx={{
+                      fontFamily: "'BabyPop', sans-serif",
+                      fontWeight: "500",
+                      fontSize: "25px",
+                      color: "#542ee7",
+                    }}
+                  >
+                    {el.toUpperCase()}
+                  </Box>
+
                   <Box>
                     <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 50 } }} color="success" checked={checkedStates[index]} onChange={handleChange(index)} />
                   </Box>
@@ -49,17 +109,6 @@ function OneCard({ onCheckboxChange }) {
             );
           })}
         </CardContent>
-
-        <CardActions>
-          <Box sx={{ display: "flex", justifyContent: "space-between", width: 1, marginLeft: "7px", marginRight: "7px" }}>
-            <Button size="large" variant="contained">
-              Пауза
-            </Button>
-            <Button size="large" variant="contained">
-              След.карта
-            </Button>
-          </Box>
-        </CardActions>
       </Card>
     </div>
   );

@@ -22,7 +22,7 @@ body {
 
 .divAllContent {
   background-image: url("/back.webp");
-  background-size: cover; /* или contain */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;

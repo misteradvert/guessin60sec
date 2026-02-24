@@ -1,6 +1,9 @@
 import React from "react";
 import OneCard from "../OneCard";
 import Timer from "../Timer/Timer";
+import Box from "@mui/material/Box";
+import CardActions from "@mui/material/CardActions";
+import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import "../pages/CardPlayPage.css";
@@ -24,8 +27,27 @@ function CardPlayPage() {
     <>
       <div className="divMain">
         <div className="divAllContent">
-          <div style={{ height: "100%", alignItems: "flex-start" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "25px", marginBottom: "40px" }}>
+          <div
+            style={{
+              height: "95%",
+              width: "95%",
+              display: "flex",
+              flexDirection: "column", // Меняем на column
+              marginTop: "2vh",
+              boxSizing: "border-box",
+              border: "2px solid lime",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                border: "2px solid orange",
+                height: "80px", // Фиксированная высота верхней панели
+                flexShrink: 0, // Запрещаем сжиматься
+              }}
+            >
               <div style={{ fontSize: "30px" }}>{teamName}</div>
               <Timer initialTime={60} />
               <div style={{ display: "flex" }}>
@@ -33,7 +55,34 @@ function CardPlayPage() {
                 <div style={{ fontSize: "30px", marginLeft: "5px" }}></div>
               </div>
             </div>
-            <OneCard onCheckboxChange={handleCheckboxChange} />
+
+            <div
+              style={{
+                flex: 1, // Занимает оставшееся пространство
+                minHeight: 0, // Важно для правильной работы flex
+                width: "100%",
+                marginTop: "10px",
+              }}
+            >
+              <OneCard onCheckboxChange={handleCheckboxChange} />
+            </div>
+
+            <CardActions
+              sx={{
+                padding: "16px",
+                borderTop: "1px solid #ddd", // Добавляем разделитель
+                backgroundColor: "#f5f5f5", // Добавляем фон для кнопок
+              }}
+            >
+              <Box sx={{ display: "flex", justifyContent: "space-between", width: 1 }}>
+                <Button size="large" variant="contained">
+                  Пауза
+                </Button>
+                <Button size="large" variant="contained">
+                  След.карта
+                </Button>
+              </Box>
+            </CardActions>
           </div>
         </div>
       </div>
