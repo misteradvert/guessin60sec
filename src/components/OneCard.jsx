@@ -69,7 +69,6 @@ function OneCard({ onCheckboxChange }) {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-
                   width: "100%",
                   height: "7.5vh",
                   borderBottom: "1px solid #c2c2c2ff", // Добавляем разделитель
@@ -79,27 +78,12 @@ function OneCard({ onCheckboxChange }) {
                 <Typography
                   variant="h6"
                   gutterBottom
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "100%",
-                    margin: "8px 0", // Добавляем отступы
-                  }}
+                  sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", margin: "6px 0" }} // Добавляем отступы
                 >
-                  <Box
-                    sx={{
-                      fontFamily: "'BabyPop', sans-serif",
-                      fontWeight: "500",
-                      fontSize: "25px",
-                      color: "#542ee7",
-                    }}
-                  >
-                    {el.toUpperCase()}
-                  </Box>
+                  <Box sx={{ fontFamily: "'BabyPop', sans-serif", fontWeight: "500", fontSize: "25px", color: "#542ee7" }}>{el.toUpperCase()}</Box>
 
                   <Box>
-                    <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 50 } }} color="success" checked={checkedStates[index]} onChange={handleChange(index)} />
+                    <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 40 } }} color="success" checked={checkedStates[index]} onChange={handleChange(index)} />
                   </Box>
                 </Typography>
               </Box>
