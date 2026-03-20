@@ -37,20 +37,13 @@ function CardPlayPage() {
               </div>
             </div>
 
-            <div style={{ flex: 1, minHeight: 0, width: "100%", marginTop: "10px",}}>
-              <OneCard onCheckboxChange={handleCheckboxChange} />
-            </div>
+            <div style={{ flex: 1, minHeight: 0, width: "100%", marginTop: "10px",}}><OneCard onCheckboxChange={handleCheckboxChange} /></div>
 
-            <CardActions sx={{ padding: "16px",borderTop: "1px solid #ddd", backgroundColor: "#f5f5f5",}}>
-              <Box sx={{ display: "flex", justifyContent: "space-between", width: 1 }}>
+            <CardActions sx={{ padding: "16px", borderTop: "1px solid #ddd", backgroundColor: "#f5f5f5", borderRadius: 5}}>
+              <Box sx={{ display: "flex", justifyContent: "space-between", width: 1}}>
 
-                <Button size="large" variant="contained">
-                  Пауза
-                </Button>
-
-                <Button size="large" variant="contained">
-                  След.карта
-                </Button>
+                <Button size="large" variant="contained">Пауза</Button>
+                <Button size="large" variant="contained">След.карта</Button>
 
               </Box>
             </CardActions>

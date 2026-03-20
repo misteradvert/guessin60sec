@@ -32,14 +32,13 @@ function OneCard({ onCheckboxChange }) {
 
   return (
     <div style={{ width: "100%", height: "98%", overflow: "hidden", display: "flex", flexDirection: "column"}}>
-      <Card sx={{ width: "100%", height: "100%", borderRadius: 5, display: "flex",flexDirection: "column"}}>
-        <CardContent
-          sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", flex: 1, overflowY: "auto", padding: "16px", "&:last-child": { paddingBottom: "16px" },}}>
+      <Card sx={{ width: "100%", height: "100%", borderRadius: 5, display: "flex",flexDirection: "column", border: "1px solid red"}}>
+        <CardContent id="cardContent" sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", flex: 1, overflowY: "auto", padding: "16px", "&:last-child": { paddingBottom: "16px" }, border: "2px solid blue"}}>
           
           {allCardsArr.card1.map(function (el, index) {
             return (
               // <Box key={index} sx={{ display: "flex", flexDirection: "column", justifyContent:"center", width: "100%", height: "6.5vh", borderBottom: "1px solid #c2c2c2ff", "&:last-child": { borderBottom: "none" },border: "1px solid lime"}}>
-                <Typography variant="h6" gutterBottom sx={{ display: "flex", justifyContent: "space-between", height: "6vh", alignItems: "center", width: "95%", border: "1px solid red" }}>
+                <Typography variant="h6" gutterBottom sx={{ display: "flex", justifyContent: "space-between", height: "6vh", alignItems: "center", width: "95%",}}>
                   
                   <Box sx={{ fontFamily: "'BabyPop', sans-serif", fontWeight: "500", fontSize: "25px", color: "#542ee7" }}>{el.toUpperCase()}</Box>
                   <Box>
