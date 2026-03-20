@@ -47,7 +47,7 @@ function CardPlayPage() {
                 <Button size="large" variant="contained">
                   Пауза
                 </Button>
-                
+
                 <Button size="large" variant="contained">
                   След.карта
                 </Button>

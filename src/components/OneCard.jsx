@@ -4,7 +4,6 @@ import Card from "@mui/material/Card";
 
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-
 import Checkbox from "@mui/material/Checkbox";
 
 function OneCard({ onCheckboxChange }) {
@@ -32,63 +31,26 @@ function OneCard({ onCheckboxChange }) {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "98%", // Учитываем высоту верхней панели
-        overflow: "hidden", // Предотвращаем выход за пределы
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Card
-        sx={{
-          width: "100%",
-          height: "100%",
-          borderRadius: 5,
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+    <div style={{ width: "100%", height: "98%", overflow: "hidden", display: "flex", flexDirection: "column"}}>
+      <Card sx={{ width: "100%", height: "100%", borderRadius: 5, display: "flex",flexDirection: "column"}}>
         <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flex: 1,
-            overflowY: "auto", // Добавляем прокрутку внутри карточки если нужно
-            padding: "16px",
-            "&:last-child": { paddingBottom: "16px" },
-          }}
-        >
+          sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", flex: 1, overflowY: "auto", padding: "16px", "&:last-child": { paddingBottom: "16px" },}}>
+          
           {allCardsArr.card1.map(function (el, index) {
             return (
-              <Box
-                key={index}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  height: "7.5vh",
-                  borderBottom: "1px solid #c2c2c2ff", // Добавляем разделитель
-                  "&:last-child": { borderBottom: "none" }, // Убираем у последнего
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", margin: "6px 0" }} // Добавляем отступы
-                >
+              // <Box key={index} sx={{ display: "flex", flexDirection: "column", justifyContent:"center", width: "100%", height: "6.5vh", borderBottom: "1px solid #c2c2c2ff", "&:last-child": { borderBottom: "none" },border: "1px solid lime"}}>
+                <Typography variant="h6" gutterBottom sx={{ display: "flex", justifyContent: "space-between", height: "6vh", alignItems: "center", width: "95%", border: "1px solid red" }}>
+                  
                   <Box sx={{ fontFamily: "'BabyPop', sans-serif", fontWeight: "500", fontSize: "25px", color: "#542ee7" }}>{el.toUpperCase()}</Box>
-
                   <Box>
                     <Checkbox sx={{ "& .MuiSvgIcon-root": { fontSize: 40 } }} color="success" checked={checkedStates[index]} onChange={handleChange(index)} />
                   </Box>
+
                 </Typography>
-              </Box>
+              /* </Box> */
             );
           })}
+
         </CardContent>
       </Card>
     </div>
