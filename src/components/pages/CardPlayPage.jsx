@@ -27,25 +27,8 @@ function CardPlayPage() {
     <>
       <div className="divMain">
         <div className="divAllContent">
-          <div
-            style={{
-              height: "95%",
-              width: "95%",
-              display: "flex",
-              flexDirection: "column", // Меняем на column
-              marginTop: "2vh",
-              boxSizing: "border-box",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                height: "80px", // Фиксированная высота верхней панели
-                flexShrink: 0, // Запрещаем сжиматься
-              }}
-            >
+          <div style={{ height: "95%", width: "95%", display: "flex", flexDirection: "column",  marginTop: "2vh", boxSizing: "border-box"}}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "80px", flexShrink: 0, }}>
               <div style={{ fontSize: "30px" }}>{teamName}</div>
               <Timer initialTime={60} />
               <div style={{ display: "flex" }}>
@@ -54,31 +37,21 @@ function CardPlayPage() {
               </div>
             </div>
 
-            <div
-              style={{
-                flex: 1, // Занимает оставшееся пространство
-                minHeight: 0, // Важно для правильной работы flex
-                width: "100%",
-                marginTop: "10px",
-              }}
-            >
+            <div style={{ flex: 1, minHeight: 0, width: "100%", marginTop: "10px",}}>
               <OneCard onCheckboxChange={handleCheckboxChange} />
             </div>
 
-            <CardActions
-              sx={{
-                padding: "16px",
-                borderTop: "1px solid #ddd", // Добавляем разделитель
-                backgroundColor: "#f5f5f5", // Добавляем фон для кнопок
-              }}
-            >
+            <CardActions sx={{ padding: "16px",borderTop: "1px solid #ddd", backgroundColor: "#f5f5f5",}}>
               <Box sx={{ display: "flex", justifyContent: "space-between", width: 1 }}>
+
                 <Button size="large" variant="contained">
                   Пауза
                 </Button>
+                
                 <Button size="large" variant="contained">
                   След.карта
                 </Button>
+
               </Box>
             </CardActions>
           </div>
