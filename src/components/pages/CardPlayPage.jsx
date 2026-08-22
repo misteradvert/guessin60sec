@@ -13,7 +13,30 @@ function CardPlayPage() {
   const queryParams = new URLSearchParams(location.search);
   const teamName = queryParams.get("team") || "";
   const [counter, setCounter] = useState(0);
-  const [timer, setTimer] = useState(60);
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isTimeUp, setIsTimeUp] = useState(false);
+  const [timerResetKey, setTimerResetKey] = useState(0);
+
+  const handleStartPause = () => {
+    if (isTimerRunning) {
+      setIsTimerRunning(false);
+      setIsPaused(true);
+    } else {
+      if (isTimeUp) {
+        setTimerResetKey((key) => key + 1);
+      }
+      setIsTimerRunning(true);
+      setIsPaused(false);
+      setIsTimeUp(false);
+    }
+  };
+
+  const handleTimeEnd = () => {
+    setIsTimerRunning(false);
+    setIsPaused(false);
+    setIsTimeUp(true);
+  };
 
   const handleCheckboxChange = (index, isChecked) => {
     if (isChecked) {
@@ -30,19 +53,28 @@ function CardPlayPage() {
           <div style={{ height: "95%", width: "95%", display: "flex", flexDirection: "column",  marginTop: "2vh", boxSizing: "border-box"}}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "80px", flexShrink: 0, }}>
               <div style={{ fontSize: "30px" }}>{teamName}</div>
-              <Timer initialTime={60} />
+              <Timer key={timerResetKey} initialTime={60} isRunning={isTimerRunning} onTimeEnd={handleTimeEnd} />
               <div style={{ display: "flex" }}>
                 <div style={{ fontSize: "30px" }}>Баллы: {counter}</div>
                 <div style={{ fontSize: "30px", marginLeft: "5px" }}></div>
               </div>
             </div>
 
-            <div style={{ flex: 1, minHeight: 0, width: "100%", marginTop: "10px",}}><OneCard onCheckboxChange={handleCheckboxChange} /></div>
+            <div style={{ flex: 1, minHeight: 0, width: "100%", marginTop: "10px", position: "relative" }}>
+              <OneCard onCheckboxChange={handleCheckboxChange} />
+              {(isPaused || isTimeUp) && (
+                <div className="pauseOverlay">
+                  <span>{isTimeUp ? "Время вышло! Ход начинает другая команда" : "Пауза"}</span>
+                </div>
+              )}
+            </div>
 
             <CardActions sx={{ padding: "16px", borderTop: "1px solid #ddd", backgroundColor: "#f5f5f5", borderRadius: 5}}>
               <Box sx={{ display: "flex", justifyContent: "space-between", width: 1}}>
 
-                <Button size="large" variant="contained">Пауза</Button>
+                <Button size="large" variant="contained" onClick={handleStartPause}>
+                  {isTimerRunning ? "Пауза" : "Старт"}
+                </Button>
                 <Button size="large" variant="contained">След.карта</Button>
 
               </Box>
