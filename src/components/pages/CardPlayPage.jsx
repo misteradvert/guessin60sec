@@ -10,12 +10,13 @@ import "../pages/CardPlayPage.css";
 
 function CardPlayPage() {
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const teamName = queryParams.get("team") || "";
+  const teamNames = location.state?.teamNames || { firstTeam: "", secondTeam: "" };
+  const teamName = teamNames.firstTeam;
   const [counter, setCounter] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const [isIntro, setIsIntro] = useState(true);
   const [timerResetKey, setTimerResetKey] = useState(0);
 
   const handleStartPause = () => {
@@ -29,6 +30,7 @@ function CardPlayPage() {
       setIsTimerRunning(true);
       setIsPaused(false);
       setIsTimeUp(false);
+      setIsIntro(false);
     }
   };
 
@@ -62,9 +64,15 @@ function CardPlayPage() {
 
             <div style={{ flex: 1, minHeight: 0, width: "100%", marginTop: "10px", position: "relative" }}>
               <OneCard onCheckboxChange={handleCheckboxChange} />
-              {(isPaused || isTimeUp) && (
+              {(isIntro || isPaused || isTimeUp) && (
                 <div className="pauseOverlay">
-                  <span>{isTimeUp ? "Время вышло! Ход начинает другая команда" : "Пауза"}</span>
+                  <span>
+                    {isIntro
+                      ? `Первой начинает команда ${teamNames.firstTeam}. У тебя будет 60 сек, чтобы объяснить своей команде максимальное количество слов из карточки. Когда будешь готов, жми на "Старт" и таймер запустится`
+                      : isTimeUp
+                        ? "Время вышло! Ход начинает другая команда"
+                        : "Пауза"}
+                  </span>
                 </div>
               )}
             </div>
