@@ -1,5 +1,5 @@
 import React from "react";
-import OneCard from "../OneCard";
+import OneCard, { allCardsArr } from "../OneCard";
 import Timer from "../Timer/Timer";
 import Box from "@mui/material/Box";
 import CardActions from "@mui/material/CardActions";
@@ -18,6 +18,12 @@ function CardPlayPage() {
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [isIntro, setIsIntro] = useState(true);
   const [timerResetKey, setTimerResetKey] = useState(0);
+  const [gameCardsObj, setGameCardsObj] = useState(() =>
+    Object.fromEntries(Object.entries(allCardsArr).map(([key, words]) => [key, [...words]]))
+  );
+  const remainingCardKeys = Object.keys(gameCardsObj);
+  const currentCardKey = remainingCardKeys[0];
+  const currentCardWords = currentCardKey ? gameCardsObj[currentCardKey] : [];
 
   const handleStartPause = () => {
     if (isTimerRunning) {
@@ -38,6 +44,16 @@ function CardPlayPage() {
     setIsTimerRunning(false);
     setIsPaused(false);
     setIsTimeUp(true);
+  };
+
+  const handleNextCard = () => {
+    if (!isTimerRunning || remainingCardKeys.length <= 1) return;
+
+    setGameCardsObj((prev) => {
+      const nextGameCards = { ...prev };
+      delete nextGameCards[currentCardKey];
+      return nextGameCards;
+    });
   };
 
   const handleCheckboxChange = (index, isChecked) => {
@@ -63,7 +79,7 @@ function CardPlayPage() {
             </div>
 
             <div style={{ flex: 1, minHeight: 0, width: "100%", marginTop: "10px", position: "relative" }}>
-              <OneCard onCheckboxChange={handleCheckboxChange} />
+              <OneCard key={currentCardKey} words={currentCardWords} onCheckboxChange={handleCheckboxChange} />
               {(isIntro || isPaused || isTimeUp) && (
                 <div className="pauseOverlay">
                   <span>
@@ -83,7 +99,7 @@ function CardPlayPage() {
                 <Button size="large" variant="contained" onClick={handleStartPause}>
                   {isTimerRunning ? "Пауза" : "Старт"}
                 </Button>
-                <Button size="large" variant="contained">След.карта</Button>
+                <Button size="large" variant="contained" onClick={handleNextCard}>След.карта</Button>
 
               </Box>
             </CardActions>

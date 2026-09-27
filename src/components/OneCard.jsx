@@ -6,24 +6,23 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 
-function OneCard({ onCheckboxChange }) {
-  let allCardsArr = {
-    card1: ["Безумный Макс", "Игра Престолов", "Depeche Mode", "Бред Пит", "Elton John", "Симба", "Лютер", "Мулан"],
-    card2: ["Большой добрый великан", "Ривердейл", "Evanescence", "Риз Уизерспун", "Сплин", "Джесси Пинкман", "Сорвиголова", "Бойцовский клуб"],
-    card3: ["Диктатор", "Монстр", "Radiohead", "Натали Портман", "Slipknot", "Торин Дубощит", "И снова здравствуйте", "Таинственный сад"],
-    card4: ["Белоснежка и семь гномов", "Бригада", "Мьюз (MUSE)", "Эдвард Нортон", "Deep Purple", "Покахонтас", "Гриффины", "Дэдпул"],
-    card5: ["Большой добрый великан", "Ривердейл", "Evanescence", "Риз Уизерспун", "Сплин", "Джесси Пинкман", "Сорвиголова", "Бойцовский клуб"],
-    card6: ["Трасса 60", "Гримм", "Michael Jackson", "Джон Сина", "Maroon 5", "Индиана Джонс", "Голова", "Карате-пацан"],
-    card7: ["Зверополис", "Ивановы-Ивановы", "Мот", "Кристиан Бэйл", "Скриптонит", "Рэмбо", "Воронины", "Мальчишник в Вегасе"],
-    card8: ["Джон Уик", "Чернобыль", "Gorillaz", "Майкл Фассбендер", "Любэ", "Халк", "Ходячие мертвецы", "Престиж"],
-    card9: ["Диктатор", "Монстр", "Radiohead", "Натали Портман", "Slipknot", "Торин Дубощит", "И снова здравствуйте", "Таинственный сад"],
-    card10: ["Далеко-далеко", "Город ангелов", "Whitney Houston", "Роберт Дауни-младший", "Zivert", "Кларк Кент", "Стрела", "Рейд"],
-    card11: ["Город грехов", "Реальные пацаны", "The Queen", "Павел Прилучный", "Stevie Wonder", "Аладдин", "Ты", "Хоббит: Туда и обратно"],
-    // card5: ["", "", "", "", "", "", "", ""],
-  };
+export const allCardsArr = {
+  card1: ["Безумный Макс", "Игра Престолов", "Depeche Mode", "Бред Пит", "Elton John", "Симба", "Лютер", "Мулан"],
+  card2: ["Большой добрый великан", "Ривердейл", "Evanescence", "Риз Уизерспун", "Сплин", "Джесси Пинкман", "Сорвиголова", "Бойцовский клуб"],
+  card3: ["Диктатор", "Монстр", "Radiohead", "Натали Портман", "Slipknot", "Торин Дубощит", "И снова здравствуйте", "Таинственный сад"],
+  card4: ["Белоснежка и семь гномов", "Бригада", "Мьюз (MUSE)", "Эдвард Нортон", "Deep Purple", "Покахонтас", "Гриффины", "Дэдпул"],
+  card5: ["Большой добрый великан", "Ривердейл", "Evanescence", "Риз Уизерспун", "Сплин", "Джесси Пинкман", "Сорвиголова", "Бойцовский клуб"],
+  card6: ["Трасса 60", "Гримм", "Michael Jackson", "Джон Сина", "Maroon 5", "Индиана Джонс", "Голова", "Карате-пацан"],
+  card7: ["Зверополис", "Ивановы-Ивановы", "Мот", "Кристиан Бэйл", "Скриптонит", "Рэмбо", "Воронины", "Мальчишник в Вегасе"],
+  card8: ["Джон Уик", "Чернобыль", "Gorillaz", "Майкл Фассбендер", "Любэ", "Халк", "Ходячие мертвецы", "Престиж"],
+  card9: ["Диктатор", "Монстр", "Radiohead", "Натали Портман", "Slipknot", "Торин Дубощит", "И снова здравствуйте", "Таинственный сад"],
+  card10: ["Далеко-далеко", "Город ангелов", "Whitney Houston", "Роберт Дауни-младший", "Zivert", "Кларк Кент", "Стрела", "Рейд"],
+  card11: ["Город грехов", "Реальные пацаны", "The Queen", "Павел Прилучный", "Stevie Wonder", "Аладдин", "Ты", "Хоббит: Туда и обратно"],
+};
 
+function OneCard({ onCheckboxChange, words = allCardsArr.card1 }) {
   // Инициализируем массив состояний для каждого чекбокса
-  const [checkedStates, setCheckedStates] = useState(Array(allCardsArr.card1.length).fill(false));
+  const [checkedStates, setCheckedStates] = useState(Array(words.length).fill(false));
 
   const handleChange = (index) => (e) => {
     const checked = e.target.checked;
@@ -44,7 +43,7 @@ function OneCard({ onCheckboxChange }) {
       <Card sx={{ width: "100%", height: "100%", borderRadius: 5, display: "flex",flexDirection: "column", border: "1px solid red"}}>
         <CardContent id="cardContent" sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", flex: 1, overflowY: "auto", padding: "16px", "&:last-child": { paddingBottom: "16px" }, border: "2px solid blue"}}>
           
-          {allCardsArr.card1.map(function (el, index) {
+          {words.map(function (el, index) {
             return (
               // <Box key={index} sx={{ display: "flex", flexDirection: "column", justifyContent:"center", width: "100%", height: "6.5vh", borderBottom: "1px solid #c2c2c2ff", "&:last-child": { borderBottom: "none" },border: "1px solid lime"}}>
                 <Typography variant="h6" gutterBottom sx={{ display: "flex", justifyContent: "space-between", height: "6vh", alignItems: "center", width: "95%",}}>
